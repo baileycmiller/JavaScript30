@@ -7,6 +7,23 @@
 </head>
 <body>
 <script>
+const pressed = [];
+const secretCode = 'wesbos';
+
+window.addEventListener('keyup', (e) => {
+  console.log(e.key);
+
+  // push new item to pressed array whenever a keyup event happens
+  pressed.push(e.key);
+  // trim array to max characters we would need
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  // check if pushed keys are equal to secret code, wesbos
+  if(pressed.join('').includes(secretCode)) {
+    console.log('DING DING');
+    cornify_add();
+  }
+  console.log(pressed);
+});
 </script>
 </body>
 </html>
